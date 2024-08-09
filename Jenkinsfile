@@ -27,10 +27,11 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker_token', passwordVariable: 'Ozgenur.0519', usernameVariable: 'ozgenur19')]) {
-                    bat 'docker login ozgenur19'
-                    bat 'docker tag dockerrepo ozgenur19/dockerrepo'
-                    bat 'docker push ozgenur19/dockerrepo'
+               
+                      withCredentials([usernamePassword(credentialsId: 'docker_token', passwordVariable: 'Ozgenur.0519', usernameVariable: 'ozgenur19')]) {
+                    bat 'docker login -u ozgenur19 -p Ozgenur.0519'
+                    bat 'docker tag dockerrepo ozgenur19/dockerrepo:latest'
+                    bat 'docker push ozgenur19/dockerrepo:latest'
                     bat 'docker logout'
                 }
             }
