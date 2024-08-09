@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: '**********', usernameVariable: 'ozgenur19')]) {
                     bat 'docker login -u ozgenur19'
                     bat 'docker tag dockerrepo ozgenur19/dockerrepo'
                     bat 'docker push ozgenur19/dockerrepo'
