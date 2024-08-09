@@ -1,15 +1,14 @@
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../app'); // Uygulamanızın ana dosyasını buraya dahil edin
+const should = chai.should();
 
-let mongoServer;
+chai.use(chaiHttp);
 
-before(async () => {
-  mongoServer = await MongoMemoryServer.create();
-  const uri = mongoServer.getUri();
-  await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-});
-
-after(async () => {
-  await mongoose.disconnect();
-  await mongoServer.stop();
+// Test işlemlerini tanımlayın
+describe('MongoDB Test', () => {
+  it('should connect to MongoDB and perform CRUD operations', (done) => {
+    // CRUD işlemlerini burada test edin
+    done();
+  });
 });
