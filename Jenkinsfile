@@ -9,7 +9,7 @@ pipeline {
 
         stage("Test"){
             steps{
-                bat 'sudo apt install npm'
+                bat 'npm install '
                 bat'npm test'
             }
         }
